@@ -1,26 +1,17 @@
 # admin
 
-## Project setup
-```
-yarn install
-```
+## Feat [WIP]
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+- [wip] table
+- [] markdown editor
+- [] richtext editor
+- [] dashboard
+- [] feedback page(error, success, 404, 403, 500...)
+- [] form
+- [] setting
+- [] login
+- [] i18n
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Mock API 规范
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
+详见 [json-server](https://github.com/typicode/json-server)
