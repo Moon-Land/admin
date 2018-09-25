@@ -10,7 +10,7 @@ import Table from "./views/Table.vue";
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: "/login",
@@ -43,3 +43,12 @@ export default new Router({
     // TODO: 404 page
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (!localStorage.getItem("Z-TOKEN") && to.name !== "login") {
+    next("/login");
+  }
+  next();
+});
+
+export default router;

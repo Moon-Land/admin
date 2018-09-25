@@ -23,7 +23,12 @@ const collection = new Array(20).fill().map((_, index) => {
   };
 });
 
+const login = {
+  name: "Zen",
+  avatar: faker.image.cats()
+};
 module.exports = {
   card,
-  collection
+  collection,
+  login
 };

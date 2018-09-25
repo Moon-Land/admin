@@ -19,7 +19,7 @@
       <div class="multiple-op">
         <Button type="primary" @click="() => onShowModal()" icon="md-add">新建</Button>
         <template v-if="selection.length">
-          <Button type="error">批量删除</Button>          
+          <Button type="error" @click="() => onDel(selection)">批量删除</Button>          
         </template>
       </div>
     </div>
@@ -80,7 +80,6 @@
           {
             title: '操作',
             render: (h, params) => {
-              console.log(params)
               const { id } = params.row
               return h("div", {}, [
                 h("Button", {
@@ -177,10 +176,9 @@
       onDel(id) {
         const vm = this
         this.$Modal.confirm({
-          title: '确认删除该条数据吗?',
+          title: '确认删除吗?',
           onOk(v) {
-            console.log(v)
-            this.$http.delete(`card/${id}`).then(res => {
+            this.$http.delete(`card/${Array.isArray(id) ? id.join(",") : id}`).then(res => {
               this.$Message.success("删除成功")
               vm.fetchTableData(this.condition)
             })
