@@ -25,7 +25,7 @@ const collection = new Array(20).fill().map((_, index) => {
 
 const login = {
   name: "Zen",
-  avatar: faker.image.cats()
+  avatar: "https://i.loli.net/2017/08/21/599a521472424.jpg"
 };
 module.exports = {
   card,

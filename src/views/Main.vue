@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
+    <Sider :collapsed-width="78" :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
       <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
         <Submenu name="1">
           <template slot="title">
@@ -14,24 +14,33 @@
     <Layout :style="{marginLeft: '200px'}">
       <Header class="header" :style="{background: '#fff'}">
         <div class="left">
-          <Icon type="md-code-working" size="28" class="toggle-icon"/>
+          
         </div>
         <div class="right">
-          <Badge dot>
-            <Icon type="ios-notifications-outline" size="26"></Icon>
-          </Badge>
-          <div class="avatar">
-            <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
-            <span>Zen</span>
-          </div>
+          <Dropdown trigger="click" placement="bottom-end">
+            <Badge dot class="clickable">
+              <Icon type="ios-notifications-outline" size="26"></Icon>
+            </Badge>
+            <DropdownMenu slot="list">
+              <DropdownItem>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</DropdownItem>
+              <DropdownItem>啦啦啦</DropdownItem>
+              <p class="clickable clear-btn" @click="handleClear">清除通知</p>
+            </DropdownMenu>
+          </Dropdown>
+          <Dropdown>
+            <div class="clickable avatar">
+              <Avatar :src="user.avatar" />
+              <span>{{user.name}}</span>
+            </div>
+            <DropdownMenu slot="list">
+              <DropdownItem>个人中心</DropdownItem>
+              <DropdownItem>个人设置</DropdownItem>
+              <DropdownItem divided @click.native="handleLogout">退出登录</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </div>
       </Header>
       <Content :style="{padding: '0 16px 16px'}">
-        <!-- <Breadcrumb :style="{margin: '16px 0'}">
-          <BreadcrumbItem>Home</BreadcrumbItem>
-          <BreadcrumbItem>Components</BreadcrumbItem>
-          <BreadcrumbItem>Layout</BreadcrumbItem>
-        </Breadcrumb> -->
         <router-view></router-view>
       </Content>
       <Footer>Gavin Gong &copy; 2018</Footer>
@@ -40,7 +49,31 @@
 </template>
 <script>
   export default {
-
+    data() {
+      return {
+        key: 'value',
+        isCollapsed: false,
+        user: {}
+      }
+    },
+    created() {
+      try {
+        this.user = JSON.parse(localStorage.getItem('Z-USER'))
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    methods: {t
+      // 登出
+      handleLogout() {
+        localStorage.removeItem("Z-TOKEN")
+        this.$router.replace("/login")
+      },
+      // 清除通知
+      handleClear() {
+        this.$http.post({})
+      }
+    },
   }
 </script>
 <style scoped lang="scss">
@@ -60,6 +93,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 .right {
   display: inline-flex;

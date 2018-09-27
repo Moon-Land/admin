@@ -56,6 +56,7 @@
             this.login().then(res => {
               try {
                 localStorage.setItem("Z-TOKEN", Date.now())
+                localStorage.setItem("Z-USER", JSON.stringify(res.data.data))
               } catch (error) {
                 this.$Message.error("登录信息存储失败")                
               }
