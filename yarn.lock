@@ -5163,9 +5163,9 @@ json-schema@0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
 
-json-server@moon-land/json-server:
+json-server@Moon-Land/json-server#release:
   version "0.14.0"
-  resolved "https://codeload.github.com/moon-land/json-server/tar.gz/111de53580dbef005abad5f996497650aca64f47"
+  resolved "https://codeload.github.com/Moon-Land/json-server/tar.gz/438b990bf05dfeac6ec6d2b494537b2d4a4141f3"
   dependencies:
     body-parser "^1.18.3"
     chalk "^2.4.1"

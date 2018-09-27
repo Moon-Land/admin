@@ -14,7 +14,7 @@
     "@types/vue-i18n": "^7.0.0",
     "axios": "^0.18.0",
     "iview": "^3.1.1",
-    "json-server": "moon-land/json-server",
+    "json-server": "Moon-Land/json-server#release",
     "vue": "^2.5.17",
     "vue-i18n": "^8.1.0",
     "vue-router": "^3.0.1",
