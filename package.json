@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "server": "node server/index.js",
+    "server": "nodemon --watch server server/index.js",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "cors": "^2.8.4",
     "faker": "^4.1.0",
     "node-sass": "^4.9.0",
+    "nodemon": "^1.18.4",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   }
