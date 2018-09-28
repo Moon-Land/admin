@@ -53,7 +53,8 @@
       return {
         key: 'value',
         isCollapsed: false,
-        user: {}
+        user: {},
+        notifications: []
       }
     },
     created() {
@@ -62,16 +63,22 @@
       } catch (error) {
         console.log(error)
       }
+      this.fetchNotifications()
     },
-    methods: {t
+    methods: {
       // 登出
       handleLogout() {
         localStorage.removeItem("Z-TOKEN")
         this.$router.replace("/login")
       },
+      fetchNotifications() {
+        this.$http.get("notifications").then(res => {
+          
+        })
+      },
       // 清除通知
       handleClear() {
-        this.$http.post({})
+        this.$http.post('name', {})
       }
     },
   }

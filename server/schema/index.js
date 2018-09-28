@@ -1,34 +1,14 @@
-const faker = require("faker");
-
-const card = new Array(100).fill({}).map((_, i) => ({
-  id: i,
-  title: faker.lorem.sentences(),
-  thumbnail: faker.image.cats() + `?ts=${Date.now()}`,
-  content: faker.lorem.paragraph(),
-  desc: faker.lorem.sentence(),
-  updated_at: faker.date.recent(),
-  status: "reject",
-  author: faker.name.title(),
-  created_at: faker.date.recent(3)
-}));
-
-const collection = new Array(20).fill().map((_, index) => {
-  return {
-    id: index,
-    title: faker.lorem.slug(),
-    desc: faker.lorem.sentence(),
-    content: faker.lorem.paragraph(),
-    created_at: faker.date.recent(3),
-    status: "reject"
-  };
-});
+const notifications = require("./notifications");
+const cards = require("./cards");
 
 const login = {
   name: "Zen",
   avatar: "https://i.loli.net/2017/08/21/599a521472424.jpg"
 };
+
 module.exports = {
-  card,
-  collection,
-  login
+  cards,
+  notifications,
+  login,
+  card: cards // TODO: 兼容之前的接口, restful 建议复数形式, 合适的时机移除
 };

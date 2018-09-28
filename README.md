@@ -9,7 +9,6 @@
 - [ ] dashboard
 - [ ] feedback page(error, success, 404, 403, 500...)
 - [ ] form
-- [ ] setting
 
 ## Mock API 规范
 
