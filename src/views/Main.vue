@@ -22,8 +22,15 @@
               <Icon type="ios-notifications-outline" size="26"></Icon>
             </Badge>
             <DropdownMenu slot="list">
-              <DropdownItem>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</DropdownItem>
-              <DropdownItem>啦啦啦</DropdownItem>
+              <DropdownItem v-for="item in notifications" :key="item.id">
+                <div class="notification">
+                  <img :src="item.img" alt="某个" class="left">
+                  <div class="notification-right">
+                    <p>{{item.title}}</p>
+                    <p>{{item.created_at | timeStamp}}</p>
+                  </div>
+                </div>
+              </DropdownItem>
               <p class="clickable clear-btn" @click="handleClear">清除通知</p>
             </DropdownMenu>
           </Dropdown>
@@ -48,6 +55,7 @@
   </div>
 </template>
 <script>
+  import { timeStamp } from "../filters";
   export default {
     data() {
       return {
@@ -72,15 +80,19 @@
         this.$router.replace("/login")
       },
       fetchNotifications() {
-        this.$http.get("notifications").then(res => {
-          
+        this.$http.get("notifications?_limit=5").then(res => {
+          this.notifications = res.data.data
         })
       },
       // 清除通知
       handleClear() {
-        this.$http.post('name', {})
+        // this.$http.post('', {})
+        this.$Message.success("清除成功")
       }
     },
+    filters: {
+      timeStamp
+    }
   }
 </script>
 <style scoped lang="scss">
@@ -101,6 +113,36 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .notification {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    img {
+      width: 40px;
+      margin-right: 14px;
+      border-radius: 50%;
+    }
+    .notification-right {
+      p:first-child {
+        margin-bottom: 4px;
+      }
+      p {
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size: 14px;
+      }
+    }
+  }
+  .clear-btn {
+    padding: 16px 0;
+    line-height: 1.5;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
 }
 .right {
   display: inline-flex;

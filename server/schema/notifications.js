@@ -8,6 +8,7 @@ const notifications = new Array(20).fill().map((_, index) => {
     desc: faker.lorem.sentence(),
     type: randomPick(["notice", "message", "todo"]),
     status: randomPick(["nothing", "name"]),
+    img: "https://i.loli.net/2017/08/21/599a521472424.jpg",
     created_at: faker.date.recent(10)
   };
 });

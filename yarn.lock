@@ -722,6 +722,10 @@
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@types/faker/-/faker-4.1.4.tgz#5e5bcd81a6ecf85fb6150f7eb857e755a09fd91f"
 
+"@types/jquery@^2.0.40":
+  version "2.0.50"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.50.tgz#eab268c883740dd6b145ca889845af544e44f694"
+
 "@types/mime@*":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
@@ -8181,6 +8185,12 @@ through@2, through@^2.3.6, through@^2.3.8, through@~2.3, through@~2.3.4:
 thunky@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.2.tgz#a862e018e3fb1ea2ec3fce5d55605cf57f247371"
+
+timeago.js@^4.0.0-beta.1:
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/timeago.js/-/timeago.js-4.0.0-beta.1.tgz#9fd9523e42747f7957430f1d1df57de11a66741f"
+  dependencies:
+    "@types/jquery" "^2.0.40"
 
 timed-out@^4.0.0:
   version "4.0.1"
