@@ -2,11 +2,12 @@ import Vue from "vue";
 import Router from "vue-router";
 
 // TODO: dynamic import
-import Login from "./views/Login.vue";
-import Main from "./views/Main.vue";
+import Login from "./views/Login";
+import Main from "./views/Main";
 
-import About from "./views/About.vue";
-import Table from "./views/Table.vue";
+import About from "./views/About";
+import Table from "./views/Table";
+import Analysis from "./views/Analysis";
 
 Vue.use(Router);
 
@@ -29,8 +30,13 @@ let router = new Router({
         },
         {
           path: "table",
-          name: "Table",
+          name: "table",
           component: Table
+        },
+        {
+          path: "analysis",
+          name: "analysis",
+          component: Analysis
         }
       ]
     },

@@ -50,7 +50,7 @@
       <Content :style="{padding: '0 16px 16px'}">
         <router-view></router-view>
       </Content>
-      <Footer>Gavin Gong &copy; 2018</Footer>
+      <Footer class="footer">Gavin Gong &copy; 2018</Footer>
     </Layout>
   </div>
 </template>
@@ -86,7 +86,6 @@
       },
       // 清除通知
       handleClear() {
-        // this.$http.post('', {})
         this.$Message.success("清除成功")
       }
     },
@@ -162,6 +161,9 @@
 .main {
   /deep/ .ivu-layout-header {
     // padding: 0 50px;
+  }
+  .footer {
+    text-align: center;
   }
 }
 </style>
