@@ -1,11 +1,13 @@
 <template>
   <div class="main">
-    <Sider :collapsed-width="78" :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
+    <Sider
+      :collapsed-width="78"
+      :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}"
+    >
       <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
         <Submenu name="1">
           <template slot="title">
-            <Icon type="ios-navigate"></Icon>
-            列表面
+            <Icon type="ios-navigate"></Icon>列表面
           </template>
           <MenuItem name="1-1">查询表格</MenuItem>
         </Submenu>
@@ -13,9 +15,7 @@
     </Sider>
     <Layout :style="{marginLeft: '200px'}">
       <Header class="header" :style="{background: '#fff'}">
-        <div class="left">
-          
-        </div>
+        <div class="left"></div>
         <div class="right">
           <Dropdown trigger="click" placement="bottom-end">
             <Badge dot class="clickable">
@@ -36,7 +36,7 @@
           </Dropdown>
           <Dropdown>
             <div class="clickable avatar">
-              <Avatar :src="user.avatar" />
+              <Avatar :src="user.avatar"/>
               <span>{{user.name}}</span>
             </div>
             <DropdownMenu slot="list">

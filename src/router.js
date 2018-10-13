@@ -8,6 +8,7 @@ import Main from "./views/Main";
 import About from "./views/About";
 import Table from "./views/Table";
 import Analysis from "./views/Analysis";
+import Editor from "./views/Editor";
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ let router = new Router({
           path: "analysis",
           name: "analysis",
           component: Analysis
+        },
+        {
+          path: "editor",
+          name: "editor",
+          component: Editor
         }
       ]
     },
