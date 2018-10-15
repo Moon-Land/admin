@@ -4,13 +4,16 @@
       :collapsed-width="78"
       :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}"
     >
-      <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
-        <Submenu name="1">
+      <Menu active-name="1-1" theme="dark" width="auto" :open-names="['1']">
+        <!-- <Submenu name="1">
           <template slot="title">
             <Icon type="ios-navigate"></Icon>列表面
           </template>
           <MenuItem name="1-1">查询表格</MenuItem>
-        </Submenu>
+        </Submenu>-->
+        <MenuItem name="1-1" @click.native="$router.replace({name: 'table'})">表格</MenuItem>
+        <MenuItem name="1-2" @click.native="$router.replace({name: 'editor'})">富文本编辑器</MenuItem>
+        <MenuItem name="1-3" @click.native="$router.replace({name: 'analysis'})">分析页</MenuItem>
       </Menu>
     </Sider>
     <Layout :style="{marginLeft: '200px'}">
@@ -138,6 +141,7 @@
     }
   }
   .clear-btn {
+    text-align: center;
     padding: 16px 0;
     line-height: 1.5;
     border-top: 1px solid rgba(0, 0, 0, 0.05);

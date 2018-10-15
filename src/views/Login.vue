@@ -2,21 +2,19 @@
   <div class="login">
     <div class="login-card">
       <img src="../assets/logo.png" alt="" class="logo">
-      <Form :model="form" :label-width="0" ref="form" :rules="rules">
-        <FormItem label="" prop="account">
-          <Input v-model="form.account" placeholder="账号" size="large"></Input>
-        </FormItem>
-        <FormItem label="" prop="pwd">
-          <Input v-model="form.pwd" placeholder="密码" size="large"></Input>
-        </FormItem>
-        <FormItem label="">
-          <Button type="primary" @click="() => onLogin('form')" class="lg-btn">登录</Button>
-        </FormItem>
-      </Form>
+      <el-form :model="form" label-width="0" ref="form" :rules="rules">
+        <el-form-item label="" prop="account">
+          <el-input v-model="form.account" placeholder="账号" size="large"/>
+        </el-form-item>
+        <el-form-item label="" prop="pwd">
+          <el-input v-model="form.pwd" placeholder="密码" size="large"/>
+        </el-form-item>
+        <el-form-item label="">
+          <el-button type="primary" @click="() => onLogin('form')" class="lg-btn">登录</el-button>
+        </el-form-item>
+      </el-form>
     </div>
-    <footer>
-      GG&copy;2018
-    </footer>
+    <footer>GG&copy;2018</footer>
   </div>
 </template>
 
@@ -83,6 +81,7 @@
   height: 100vh;
   box-sizing: border-box;
   padding: 20px 0;
+  text-align: center;
 }
 .logo {
   max-width: 80px;
