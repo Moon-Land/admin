@@ -5,17 +5,17 @@
 </template>
 
 <script>
-  import Editor from './components/Editor'
-  export default {
-    components: {
-      Editor
-    },
-    data() {
-      return {
-        data: {}
-      }
-    },
+import Editor from "./components/Editor";
+export default {
+  components: {
+    Editor
+  },
+  data() {
+    return {
+      data: {}
+    };
   }
+};
 </script>
 
 <style scoped>

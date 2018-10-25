@@ -19,57 +19,55 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        form: {
-          account: '',
-          pwd: ''
-        },
-        rules: {
-          account: [
-            { required: true, message: '账号不能为空', trigger: 'blur' },
-          ],
-          pwd: [
-            { required: true, message: '不能为空', trigger: 'blur' }
-          ]
-        }
-      }
-    },
-    computed: {
-      redirect() {
-        return this.$route.query.redirect
-      }
-    },
-    methods: {
-      login() {
-        return this.$http.patch('login', {})
+export default {
+  data() {
+    return {
+      form: {
+        account: "",
+        pwd: ""
       },
-      onLogin(name) {
-        this.$refs[name].validate(isValid => {
-          console.log(isValid);
-          
-          if (isValid) {
-            // 调用登录接口 -> 存入 Token -> 重定向
-            this.login().then(res => {
-              try {
-                localStorage.setItem("Z-TOKEN", Date.now())
-                localStorage.setItem("Z-USER", JSON.stringify(res.data.data))
-              } catch (error) {
-                this.$Message.error("登录信息存储失败")                
-              }
-              this.$Message.success({
-                content: '登录成功',
-                onClose: () => {
-                  this.$router.replace(this.redirect ? this.redirect : '/main/table')
-                }
-              })
-            })
-          }
-        })
+      rules: {
+        account: [{ required: true, message: "账号不能为空", trigger: "blur" }],
+        pwd: [{ required: true, message: "不能为空", trigger: "blur" }]
       }
+    };
+  },
+  computed: {
+    redirect() {
+      return this.$route.query.redirect;
+    }
+  },
+  methods: {
+    login() {
+      return this.$http.patch("login", {});
     },
+    onLogin(name) {
+      this.$refs[name].validate(isValid => {
+        console.log(isValid);
+
+        if (isValid) {
+          // 调用登录接口 -> 存入 Token -> 重定向
+          this.login().then(res => {
+            try {
+              localStorage.setItem("Z-TOKEN", Date.now());
+              localStorage.setItem("Z-USER", JSON.stringify(res.data.data));
+            } catch (error) {
+              this.$Message.error("登录信息存储失败");
+            }
+            this.$Message.success({
+              content: "登录成功",
+              onClose: () => {
+                this.$router.replace(
+                  this.redirect ? this.redirect : "/main/table"
+                );
+              }
+            });
+          });
+        }
+      });
+    }
   }
+};
 </script>
 
 <style scoped lang="scss">

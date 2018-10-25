@@ -6,7 +6,7 @@
 - [x] login
 - [x] top nav
 - [ ] markdown editor
-- [ ] richtext editor
+- [x] richtext editor
 - [ ] dashboard
 - [ ] feedback page(error, success, 404, 403, 500...)
 - [ ] form

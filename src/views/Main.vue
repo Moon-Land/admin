@@ -14,6 +14,7 @@
         <MenuItem name="1-1" @click.native="$router.replace({name: 'table'})">表格</MenuItem>
         <MenuItem name="1-2" @click.native="$router.replace({name: 'editor'})">富文本编辑器</MenuItem>
         <MenuItem name="1-3" @click.native="$router.replace({name: 'analysis'})">分析页</MenuItem>
+        <MenuItem name="1-4" @click.native="$router.replace({name: 'settings'})">个人设置</MenuItem>
       </Menu>
     </Sider>
     <Layout :style="{marginLeft: '200px'}">
@@ -58,44 +59,44 @@
   </div>
 </template>
 <script>
-  import { timeStamp } from "../filters";
-  export default {
-    data() {
-      return {
-        key: 'value',
-        isCollapsed: false,
-        user: {},
-        notifications: []
-      }
-    },
-    created() {
-      try {
-        this.user = JSON.parse(localStorage.getItem('Z-USER'))
-      } catch (error) {
-        console.log(error)
-      }
-      this.fetchNotifications()
-    },
-    methods: {
-      // 登出
-      handleLogout() {
-        localStorage.removeItem("Z-TOKEN")
-        this.$router.replace("/login")
-      },
-      fetchNotifications() {
-        this.$http.get("notifications?_limit=5").then(res => {
-          this.notifications = res.data.data
-        })
-      },
-      // 清除通知
-      handleClear() {
-        this.$Message.success("清除成功")
-      }
-    },
-    filters: {
-      timeStamp
+import { timeStamp } from "../filters";
+export default {
+  data() {
+    return {
+      key: "value",
+      isCollapsed: false,
+      user: {},
+      notifications: []
+    };
+  },
+  created() {
+    try {
+      this.user = JSON.parse(localStorage.getItem("Z-USER"));
+    } catch (error) {
+      console.log(error);
     }
+    this.fetchNotifications();
+  },
+  methods: {
+    // 登出
+    handleLogout() {
+      localStorage.removeItem("Z-TOKEN");
+      this.$router.replace("/login");
+    },
+    fetchNotifications() {
+      this.$http.get("notifications?_limit=5").then(res => {
+        this.notifications = res.data.data;
+      });
+    },
+    // 清除通知
+    handleClear() {
+      this.$Message.success("清除成功");
+    }
+  },
+  filters: {
+    timeStamp
   }
+};
 </script>
 <style scoped lang="scss">
 .layout {

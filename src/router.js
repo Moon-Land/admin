@@ -9,6 +9,7 @@ import About from "./views/About";
 import Table from "./views/Table";
 import Analysis from "./views/Analysis";
 import Editor from "./views/Editor";
+import Settings, { Base } from "./views/Settings";
 
 Vue.use(Router);
 
@@ -43,6 +44,17 @@ let router = new Router({
           path: "editor",
           name: "editor",
           component: Editor
+        },
+        {
+          path: "settings",
+          name: "settings",
+          component: Settings,
+          children: [
+            {
+              path: "base",
+              component: Base
+            }
+          ]
         }
       ]
     },
