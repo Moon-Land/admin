@@ -77,14 +77,11 @@
 </template>
 
 <script>
-  import commonMixin from './common';
-  import ejectMixin from "./eject";
-  export default {
-    mixins: [
-      commonMixin,
-      ejectMixin
-    ]
-  }
+import commonMixin from "./common";
+import ejectMixin from "./eject";
+export default {
+  mixins: [commonMixin, ejectMixin]
+};
 </script>
 
 <style scoped lang="scss">

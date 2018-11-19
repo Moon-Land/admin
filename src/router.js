@@ -9,7 +9,7 @@ import About from "./views/About";
 import Table from "./views/Table";
 import Analysis from "./views/Analysis";
 import Editor from "./views/Editor";
-import Settings, { Base } from "./views/Settings";
+import Settings, { Base, Security } from "./views/Settings";
 
 Vue.use(Router);
 
@@ -53,6 +53,10 @@ let router = new Router({
             {
               path: "base",
               component: Base
+            },
+            {
+              path: "security",
+              component: Security
             }
           ]
         }
